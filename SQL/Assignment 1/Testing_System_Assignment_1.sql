@@ -91,7 +91,7 @@ CREATE TABLE `Question`
         CreateDate			Datetime 
 	);
     
-    -- tao bang 11:ExamQuestion.
+    -- tao bang 11:ExamQuestion
     CREATE TABLE `ExamQuestion`
     (
 		ExamID				INT,
