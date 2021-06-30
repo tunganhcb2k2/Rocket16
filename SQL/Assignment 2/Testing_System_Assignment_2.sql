@@ -203,7 +203,7 @@ value			   ('1', '001', 'De thi .NET', '1', '60', '1', '2021-6-30'),
                    ('4', '004', 'De thi Ruby', '4', '60', '4', '2021-6-30'),
                    ('5', '005', 'De thi Postmen', '5', '90', '5', '2021-6-30');
                    
--- them du lieu vao bang ExamQuestion
+-- them du lieu vao bang ExamQuestion.
 Insert into `ExamQuestion` (ExamID, QuestionID)
 value					   ('2','3'),
 						   ('3','1'),
