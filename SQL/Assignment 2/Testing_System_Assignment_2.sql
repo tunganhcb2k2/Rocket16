@@ -205,11 +205,11 @@ value			   ('1', '001', 'De thi .NET', '1', '60', '1', '2021-6-30'),
                    
 -- them du lieu vao bang ExamQuestion.
 Insert into `ExamQuestion` (ExamID, QuestionID)
-value					   ('2','3'),
-						   ('3','1'),
+value					   ('1','2'),
+						   ('2','3'),
+                           ('3','1'),
                            ('4','5'),
-                           ('5','4'),
-                           ('1','2');
+                           ('5','4');
                    
 
                        
