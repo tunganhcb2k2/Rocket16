@@ -257,7 +257,56 @@ VALUES (1, 5),
        (10, 8);
 
 
+-- Question 1:
+Drop view if exists `bang1`;
+create view `bang1` as
+(SELECT `fullname` as 'nhan vien phong ban sale'
+from account
+where `departmentid` = 2
+);
 
+-- Question 2:
+Drop view if exists `bang2`;
+create view `bang2` as (
+select *, count(`GroupAccount`.`groupid`) as 'so luong group tham gia'
+from `account` 
+join groupaccount using(accountid)
+group by Groupaccount.accountid having
+count(Groupaccount.groupid) = (select max(`so luong`)
+					from (select count(`GroupAccount`.`groupid`) as 'so luong'
+						  from `GroupAccount`
+						  group by `GroupAccount`.`accountid`) as `maxcontent` )
+);
+
+-- Question 3:
+Drop view if exists `bang3`;
+create view `bang3` as (
+select `content`
+from `question`
+where character_length(`content`) >= 300
+);
+Delete from `bang3`;
+
+-- Question 4:
+drop view if exists `bang4`;
+create view `bang4` as (
+select `department`.`departmentname`, count(`account`.`accountid`)
+from `account`
+join department using(departmentid)
+group by `account`.`DepartmentID` having count(`account`.`accountid`) = (select max(`so luong`)
+from(select count(`account`.`accountid`) as 'so luong'
+from `account`
+group by `account`.`departmentid`) as `max`)
+);
+
+-- Question 5:
+drop view if exists `bang5`;
+create view `bang5` as(
+select `question`.`content`, `account`.`fullname` as 'nguoi hoi'
+from `question`
+join `account` on `account`.`AccountID` = `question`.`creatorid`
+where `fullname` like 'Nguyen%'
+);
 
 
 
