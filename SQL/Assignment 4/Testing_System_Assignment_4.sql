@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `Testing_System_Assignment_3`;
-CREATE DATABASE `Testing_System_Assignment_3`;
-USE `Testing_System_Assignment_3`;
+DROP DATABASE IF EXISTS `Testing_System_Assignment_4`;
+CREATE DATABASE `Testing_System_Assignment_4`;
+USE `Testing_System_Assignment_4`;
 
 -- tao bang 1:Department
 DROP TABLE IF EXISTS `Department`;
@@ -29,8 +29,8 @@ CREATE TABLE `Account`
     DepartmentID			TINYINT NOT NULL,
     PositionID				TINYINT NOT NULL,
     CreateDate				Datetime NOT NULL
-  --  FOREIGN KEY(DepartmentID) REFERENCES `Department` (DepartmentID),
-   -- FOREIGN KEY(PositionID) REFERENCES `Position` (PositionID)
+    -- FOREIGN KEY(DepartmentID) REFERENCES `Department` (DepartmentID),
+    -- FOREIGN KEY(PositionID) REFERENCES `Position` (PositionID)
 );
 
 -- tao bang 4:Group
@@ -48,10 +48,10 @@ DROP TABLE IF EXISTS `GroupAccount`;
 CREATE TABLE `GroupAccount`
 (
 	GroupID					TINYINT NOT NULL,
-    AccountID				TINYINT NOT NULL UNIQUE KEY,
+    AccountID				TINYINT  ,
     JoinDate				Datetime NOT NULL
-    -- FOREIGN KEY(GroupID) REFERENCES `Group`(GroupID),
-    -- FOREIGN KEY(AccountID) REFERENCES `Account`(AccountID)
+   -- FOREIGN KEY(GroupID) REFERENCES `Group`(GroupID),
+   -- FOREIGN KEY(AccountID) REFERENCES `Account`(AccountID)
 );
 
 -- tao bang 6:TypeQuestion
@@ -80,8 +80,8 @@ CREATE TABLE `Question`
     TypeID					TINYINT NOT NULL,
     CreatorID				TINYINT NOT NULL,
     CreateDate				Datetime NOT NULL
-   -- FOREIGN KEY(CategoryID) REFERENCES `CategoryQuestion` (CategoryID),
-   -- FOREIGN KEY(TypeID) REFERENCES `TypeQuestion` (TypeID)
+  --  FOREIGN KEY(CategoryID) REFERENCES `CategoryQuestion` (CategoryID),
+  --  FOREIGN KEY(TypeID) REFERENCES `TypeQuestion` (TypeID)
 );
     
 -- tao bang 9:Answer
@@ -90,9 +90,9 @@ CREATE TABLE `Answer`
     (
 		AnswerID			TINYINT AUTO_INCREMENT PRIMARY KEY,
         Content				NVARCHAR(50) NOT NULL,
-        QuestionID			TINYINT NOT NULL,
+        QuestionID			TINYINT ,
         isCorrect			VARCHAR(3) NOT NULL
-       -- FOREIGN KEY (QuestionID) REFERENCES `Question` (QuestionID)
+     --   FOREIGN KEY (QuestionID) REFERENCES `Question` (QuestionID)
 	);
     
 -- tao bang 10:Exam
@@ -113,14 +113,14 @@ DROP TABLE IF EXISTS `ExamQuestion`;
 CREATE TABLE `ExamQuestion`
     (
 		ExamID				TINYINT NOT NULL,
-		QuestionID			TINYINT NOT NULL
-       -- FOREIGN KEY (ExamID) REFERENCES `Exam`(ExamID)
+		QuestionID			TINYINT 
+     --   FOREIGN KEY (ExamID) REFERENCES `Exam`(ExamID)
 	);
     
 -- them du lieu vao bang Department
 Insert into `Department` (DepartmentID, DepartmentName)
 value				   ('1'          , N'Marketing'   ),
-					   ('2'		   , N'Sale'        ),
+					   ('2'		     , N'Sale'        ),
 					   ('3'          , N'Bảo vệ'      ),
 					   ('4'          , N'Nhân sự'     ),
 					   ('5'          , N'Kỹ thuật'    ),
@@ -146,10 +146,10 @@ Value				 ('1'         , N'Dev'      ),
 -- them du lieu vao bang Account
 Insert into `Account` (AccountID, Email, Username, Fullname, DepartmentID, PositionID, CreateDate)
 Value 				('1'        , 'account1cb@gmail.com', 'khabanh', 'Nguyen Van A', '6', '1', '2021-6-29'),
-					('2'        , 'vti1cb@gmail.com', 'huanhoahong', 'Phung Thi Lanh', '4', '2', '2021-6-29'),
-                    ('3'        , 'accountprocb@gmail.com', 'tienbip', 'Phung The Hoang', '3', '4', '2021-6-28'),
-                    ('4'        , 'itvippro@gmail.com', 'joinwick', 'Cao My Vi', '5', '3', '2021-5-10'),
-                    ('5'        , 'account2@gmail.com', 'siusao', 'Hua Minh Hoang', '2', '1', '2021-5-20'),
+					('2'        , 'vti1cb@gmail.com', 'huanhoahong', 'Phung Thi Lanh', '6', '2', '2021-6-29'),
+                    ('3'        , 'accountprocb@gmail.com', 'tienbip', 'Phung The Hoang', '6', '6', '2021-6-28'),
+                    ('4'        , 'itvippro@gmail.com', 'joinwick', 'Cao My Vi', '6', '3', '2021-5-10'),
+                    ('5'        , 'account2@gmail.com', 'siusao', 'Hua Minh Hoang', '2', '5', '2021-5-20'),
                     ('6'        , 'vtiaccademy@gmail.com', 'totnghiep', 'Le Duc Hanh', '1', '4', '2021-5-30'),
                     ('7'        , 'nonstop@gmail.com', 'dinhcuachop', 'Ma Thai Bao', '8', '3', '2021-6-29'),
                     ('8'        , 'siublack@gmail.com', 'proqua', 'Vu Son Tung', '7', '4', '2020-12-20'),
@@ -167,19 +167,20 @@ Value			    ('1'      , N'VTI01', '1', '2021-6-10'),
                     ('7'      , N'VTI07', '7', '2021-6-7'),
                     ('8'      , N'VTI08', '8', '2021-6-8'),
                     ('9'      , N'VTI09', '9', '2021-6-10'),
-                    ('10'     , N'VTI10', '10', '2021-6-7');
+                    ('10'     , N'VTI10', '10', '2021-6-7'),
+                    ('11'     , N'VTI11',  '11', '2021-6-8');
                                     
 -- them du lieu vao bang GroupAccount
 Insert into `GroupAccount` (GroupID, AccountID, JoinDate)
 value					   ('1', '10', '2021-6-11'),
-						   ('2', '4', '2021-6-10'),
-                           ('3', '5', '2021-6-10'),
-                           ('4', '7', '2021-6-9'),
-                           ('5', '9', '2021-6-11'),
-                           ('6', '2', '2021-6-10'),
-                           ('7', '3', '2021-6-10'),
+						   ('2', '10', '2021-6-10'),
+                           ('3', '10', '2021-6-10'),
+                           ('4', '10', '2021-6-9'),
+                           ('5', '10', '2021-6-11'),
+                           ('6', '10', '2021-6-10'),
+                           ('7', '10', '2021-6-10'),
                            ('8', '6', '2021-6-10'),
-                           ('9', '1', '2021-6-10'),
+                           ('9', '3' , '2021-6-10'),
                            ('10', '8', '2021-6-10');
 			
 -- them du lieu vao bang TypeQuestion
@@ -211,15 +212,16 @@ value						   ('1', 'Java'),
 -- them du lieu vao bang Question
 Insert into `Question` (QuestionID, Content, CategoryID, TypeID, CreatorID, CreateDate)
 Value				   ('1', 'cau hoi ve java', '1', '2', '3', '2021-6-29'),
-					   ('2', 'cau hoi ve .NET', '2', '2', '1', '2021-6-29'),
+					   ('2', 'cau hoi ve .NET', '1', '2', '1', '2021-6-29'),
                        ('3', 'cau hoi ve SQL', '3', '2', '4', '2021-6-29'),
                        ('4', 'cau hoi ve Postman', '4', '2', '5', '2021-6-29'),
                        ('5', 'cau hoi ve Ruby', '5', '1', '2', '2021-6-28'),
-                       ('6', 'cau hoi ve C', '6','3', '4', '2021-6-28'),
+                       ('6', 'cau hoi ve C', '6','1', '4', '2021-6-28'),
                        ('7', 'cau hoi ve C++', '7', '4', '5', '2021-6-28'),
                        ('8', 'cau hoi ve C#', '8', '5', '6', '2021-6-28'),
                        ('9', 'cau hoi ve Pascal', '9', '6', '7', '2021-6-28'),
-                       ('10', 'cau hoi ve S', '10', '7', '8', '2021-6-28');
+                       ('10', 'cau hoi ve S', '10', '7', '8', '2021-6-28'),
+                       ('11', 'cau hoi 11', '6', '8', '7', '2021-6-28');
                        
 -- them du lieu vao bang Answer
 Insert into `Answer` (AnswerID, Content, QuestionID, isCorrect)
@@ -250,8 +252,8 @@ value			   ('1', '001', 'De thi .NET', '1', '60', '1', '2021-6-30'),
 -- them du lieu vao bang ExamQuestion.
 Insert into `ExamQuestion` (ExamID, QuestionID)
 value					   ('1','2'),
-						   ('2','3'),
-                           ('3','1'),
+						   ('2','2'),
+                           ('3','2'),
                            ('4','5'),
                            ('5','4'),
                            ('6','6'),
@@ -260,85 +262,175 @@ value					   ('1','2'),
                            ('9','9'),
                            ('10','10');
                            
--- Question 1: (done)
--- Question 2:
-Select *
-From `Department`
-Order by DepartmentID Asc;
+ --                                                                           \\ Exercise 1 --//
+ -- Question 1:
+ select Department.DepartmentID, Department.DepartmentName , Account.Fullname
+ From `Department`
+ join `Account` on Department.DepartmentID = Account.DepartmentID
+ order by `DepartmentID` ASC;
+ 
+ -- Question 2:
+select *
+From `account`
+where CreateDate > '2010-12-20';
 
 -- Question 3:
-Select *
-From `Department`
-Where `DepartmentName` = 'Sale';
+select Position.PositionName, account.fullname 
+from `Position`
+join `Account` on Position.PositionID = Account.Positionid;
 
 -- Question 4:
-Select *
-From `Account`
-Where character_length(Fullname)=(select MAX(character_length(Fullname)) from`account`);
+select Department.departmentid, Department.departmentname, count(Department.departmentid) AS 'so luong NV'
+from `Department`
+join `account` on Department.Departmentid = account.Departmentid
+GROUP BY account.Departmentid having count(account.Departmentid) > 3 ;
 
--- Question 5:
-Select *
-From `Account`
-Where character_length(Fullname) = (select Max(character_length(Fullname)) from `account`) AND DepartmentID = '3';
+-- Question 5:                                
+Drop view if exists bang1;
+create view bang1 as
+select `questionid`, count(examid) as 'so lan xuat hien'
+from `examquestion`
+group by `Questionid`;
+
+select bang1.questionid, question.content , Max(`so lan xuat hien`) as 'so lan xuat hien'
+from `bang1`
+join question on question.questionid = bang1.questionid;
 
 -- Question 6:
-Select `GroupName`
-From `Group`
-Where 'CreateDate' < '2019-12-20';
+select Categoryid, count(questionid) as 'so lan xuat hien'
+From `Question`
+group by categoryid ;
 
--- Question 7:                                        
-Select Question.questionid, count(answer.questionid) AS 'so luong'
-from `Question`
-join `answer` on question.questionid = answer.questionid
-group by question.questionid 
-having count(answer.questionid) >= 4;
+-- Question 7:
+select QuestionID, count(examid) AS 'so lan xuat hien'
+from ExamQuestion
+group by questionid
+order by questionid asc;
 
--- Question 8:
-Select `ExamID`
-From `Exam`
-Where `Duration` >= 60 AND `CreateDate`< '2019-12-20';
+-- Question 8:                           
+drop view if exists bang2;
+create view bang2 as
+select questionid, count(answerid) as 'so cau tra loi'
+from answer
+group by questionid;
 
--- Question 9:
-Select *
-From `Group`
-Order by `Createdate` DESC
-Limit 5;
+select question.questionid, question.content, MAX(`so cau tra loi`) as 'so cau tra loi'
+from question
+join bang2 on question.questionid = bang2.questionid;
 
--- QUestion 10:
-Select `DepartmentID`, Count(Username) AS 'So luong'
-From `Account`
-where `DepartmentID`=2;
+-- Question 9:               
+select `groupaccount`.`groupid`, `group`.`GroupName`, count(`groupaccount`.`accountid`) as 'so luong account'
+from `groupaccount`
+join `group` on `groupaccount`.`groupid` = `group`.`groupid`
+group by `groupaccount`.`groupid`;
 
+-- Question 10:
+drop view if exists `bang3`;
+create view `bang3` as
+SELECT positionid, count(accountid) as 'so nhan vien'
+from `account`
+group by positionid;
 
--- Question 11:                             
-Select *
-From `Account`
-Where `Fullname` like '%D%o';
+select `position`.`positionid`, `position`.`positionname`, `bang3`.`so nhan vien`
+from bang3
+join `position` on `bang3`.`positionid` = `position`.`positionid`
+where `so nhan vien` <= (select min(`so nhan vien`) from bang3);
+
+-- Question 11:
+select `department`.`departmentname`, `position`.`positionname`, count(*) 'so luong'
+from `account`
+join position using(positionid)
+join department using(departmentid)
+group by `account`.`departmentid`, `account`.`positionid` having `account`.`positionid` <= 4;
 
 -- Question 12:
-Delete From `exam`
-Where `CreateDate` < '2019-12-20';
+select `question`.`content`, `question`.`createdate`, `categoryquestion`.`categoryname`, `typequestion`.`typename`, `account`.`fullname`, `answer`.`content`, `answer`.`iscorrect`
+from `question`
+join `answer` using(questionid)
+join `categoryquestion` using(categoryid)
+join `typequestion` using(typeid)
+join `account` on `question`.`creatorid` = `account`.`accountid` ;
 
 -- Question 13:
-Delete From `Question`
-Where `content` LIKE 'cau hoi%';
-
--- Question 14:
-Update `Account`
-SET `Fullname` = 'Nguyễn Bá Lộc',
-    `Email` = 'loc.nguyenba@vti.com.vn'
-Where `AccountID` = 5;
-
--- Question 15:
-Update `GroupAccount`
-SET `GroupID` = '4'
-Where `accountid` = 5;
+select `typequestion`.`typename`, count(`question`.`questionid`) as 'so luong'
+from `question`
+join `typequestion` using(typeid)
+group by `question`.`typeid` having `question`.`typeid` <= 2;
 
 
+-- Question 14 + 15:
+select G.GroupID, GroupName
+from `Group` G
+left join GroupAccount GA on G.GroupID = GA.GroupID where AccountID is null;
 
-                       
-                       
-                           
-                  
-						
-    
+-- Question 16:
+select Q.questionid, Q.content
+from `question` Q
+left join answer using(questionid) where answerid is null
+;
+
+-- Question 17:
+-- a,
+select A.accountid, A.username
+from account A
+join groupaccount GA using(accountid) where groupid = 1;
+-- b,
+select A.accountid, A.username
+from account A
+join groupaccount GA using(accountid) where groupid = 2;
+-- c,
+select A.accountid, A.username
+from account A
+join groupaccount GA using(accountid) where groupid = 1
+union
+select A.accountid, A.username
+from account A
+join groupaccount GA using(accountid) where groupid = 2;
+
+-- Question 18:
+-- a,
+select G.groupid, G.groupname, count(groupid) as 'so luong thanh vien'
+from groupaccount GA
+join `group` G using(groupid)
+group by GA.accountid having `so luong thanh vien` > 5;
+-- b,
+select G.groupid, G.groupname, count(groupid) as 'so luong thanh vien'
+from groupaccount GA
+join `group` G using(groupid)
+group by GA.accountid having `so luong thanh vien` < 7;
+-- c,
+select G.groupid, G.groupname, count(groupid) as 'so luong thanh vien'
+from groupaccount GA
+join `group` G using(groupid)
+group by GA.accountid having `so luong thanh vien` > 5
+union
+select G.groupid, G.groupname, count(groupid) as 'so luong thanh vien'
+from groupaccount GA
+join `group` G using(groupid)
+group by GA.accountid having `so luong thanh vien` < 7;
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
