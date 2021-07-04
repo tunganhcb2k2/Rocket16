@@ -262,7 +262,7 @@ value					   ('1','2'),
                            ('9','9'),
                            ('10','10');
                            
- --                                                                           \\ Exercise 1 --//
+ --                                                                           \\ Exercise 1 //
  -- Question 1:
  select Department.DepartmentID, Department.DepartmentName , Account.Fullname
  From `Department`
@@ -369,6 +369,7 @@ from `question` Q
 left join answer using(questionid) where answerid is null
 ;
 
+ --                                                                           \\ Exercise 2 //
 -- Question 17:
 -- a,
 select A.accountid, A.username
