@@ -240,7 +240,7 @@ VALUES ('VTIQ001', N'Đề thi C#', 1, 60, '5', '2019-04-05'),
        ('VTIQ006', N'Đề thi Postman', 3, 60, '6', '2020-04-05'),
        ('VTIQ007', N'Đề thi SQL', 2, 60, '7', '2020-04-05'),
        ('VTIQ008', N'Đề thi Python', 8, 60, '8', '2020-04-07'),
-       ('VTIQ009', N'Đề thi ADO.NET', 4, 90, '9', '2020-04-07'),
+       ('VTIQ009', N'Đề thi ADO.NET', 4, 90, '9', '2017-04-07'),
        ('VTIQ010', N'Đề thi ASP.NET', 7, 90, '10', '2020-04-08');
        
 -- them du lieu vao bang ExamQuestion
@@ -403,7 +403,7 @@ begin
         end if;
         -- check date
         if timestampdiff(year, _date, curdate()) >= 3 then
-            call bang9(id);
+            call bang9(_id);
             set num_of_del = num_of_del + 1;
         end if;
     end loop;
@@ -485,16 +485,16 @@ begin
 	declare curr_date date;
     declare step_date date;
     declare iter int default 0;
-    declare _title nvarchar(50);
-    declare _result nvarchar(50);
+    declare _title varchar(50);
+    declare _result varchar(50);
     declare _num int;
     set curr_date = current_date();
 
     drop temporary table if exists result;
     create temporary table result
     (
-        title  nvarchar(50),
-        result nvarchar(50)
+        title  varchar(50),
+        result varchar(50)
     );
 
     set iter = 0;
@@ -523,7 +523,6 @@ begin
     
 		
 end $$
-
 
 
 
