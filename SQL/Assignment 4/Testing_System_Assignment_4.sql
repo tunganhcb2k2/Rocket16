@@ -422,9 +422,6 @@ group by GA.accountid having `so luong thanh vien` < 7;
 
 
 
- 
-
-
 
 
 

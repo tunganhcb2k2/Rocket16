@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `Testing_System_Assignment_5`;
-CREATE DATABASE `Testing_System_Assignment_5`;
-USE `Testing_System_Assignment_5`;
+DROP DATABASE IF EXISTS `Testing_System_Assignment_6`;
+CREATE DATABASE `Testing_System_Assignment_6`;
+USE `Testing_System_Assignment_6`;
 
 -- tao bang 1:Department
 DROP TABLE IF EXISTS `Department`;
@@ -26,7 +26,7 @@ CREATE TABLE `Account`
     Email					VARCHAR(30) NOT NULL UNIQUE KEY,
     Username				VARCHAR(30) NOT NULL UNIQUE KEY,
     Fullname				NVARCHAR(50) NOT NULL,
-    DepartmentID			TINYINT NOT NULL,
+    DepartmentID			TINYINT ,
     PositionID				TINYINT NOT NULL,
     CreateDate				Datetime NOT NULL
     -- FOREIGN KEY(DepartmentID) REFERENCES `Department` (DepartmentID),
@@ -77,7 +77,7 @@ CREATE TABLE `Question`
 	QuestionID				TINYINT AUTO_INCREMENT PRIMARY KEY,
     Content					NVARCHAR(50) NOT NULL,
     CategoryID				TINYINT NOT NULL,
-    TypeID					TINYINT NOT NULL,
+    TypeID					TINYINT ,
     CreatorID				TINYINT NOT NULL,
     CreateDate				Datetime NOT NULL
   --  FOREIGN KEY(CategoryID) REFERENCES `CategoryQuestion` (CategoryID),
@@ -200,7 +200,7 @@ VALUES ('Java'),
        ('PHP');
 
 -- them du lieu vao bang Question
-INSERT INTO Question (Content, CategoryID, TypeID, CreatorID, CreateDate)
+INSERT INTO `Question` (Content, CategoryID, TypeID, CreatorID, CreateDate)
 VALUES (N'Câu hỏi về Java', 1, '1', '2', '2020-04-05'),
        (N'Câu Hỏi về PHP', 10, '2', '2', '2020-04-05'),
        (N'Hỏi về C#', 9, '2', '3', '2020-04-06'),
@@ -209,8 +209,8 @@ VALUES (N'Câu hỏi về Java', 1, '1', '2', '2020-04-05'),
        (N'Hỏi về ADO.NET', 3, '2', '6', '2020-04-06'),
        (N'Hỏi về ASP.NET', 2, '1', '7', '2020-04-06'),
        (N'Hỏi về C++', 8, '1', '8', '2020-04-07'),
-       (N'Hỏi về SQL', 4, '2', '9', '2020-04-07'),
-       (N'Hỏi về Python', 7, '1', '10', '2020-04-07');
+       (N'Hỏi về SQL', 4, '2', '9', '2021-06-07'),
+       (N'Hỏi về Python', 7, '1', '10', now());
        
 -- them du lieu vao bang Answer
 INSERT INTO Answer (Content, QuestionID, isCorrect)
@@ -255,68 +255,283 @@ VALUES (1, 5),
        (8, 10),
        (9, 9),
        (10, 8);
-
-
+       
 -- Question 1:
-Drop view if exists `bang1`;
-create view `bang1` as
-(SELECT `fullname` as 'nhan vien phong ban sale'
-from account
-where `departmentid` = 2
-);
+Drop procedure if exists `bang1`;
+delimiter $$
+create procedure `bang1` (IN in_DepartmentName Varchar(30))
+begin
+		Select a.accountid, a.email, a.username, a.fullname
+        from `account` a
+        join department d using(departmentid)
+        where d.departmentname = in_departmentname;
+End$$
+delimiter ;
 
 -- Question 2:
-Drop view if exists `bang2`;
-create view `bang2` as (
-select *, count(`GroupAccount`.`groupid`) as 'so luong group tham gia'
-from `account` 
-join groupaccount using(accountid)
-group by Groupaccount.accountid having
-count(Groupaccount.groupid) = (select max(`so luong`)
-					from (select count(`GroupAccount`.`groupid`) as 'so luong'
-						  from `GroupAccount`
-						  group by `GroupAccount`.`accountid`) as `maxcontent` )
-);
+Drop procedure if exists `bang2`;
+delimiter $$
+create procedure `bang2` (In in_groupname Varchar(30))
+begin
+		select count(`Groupaccount`.`accountid`) as 'so luong account'
+        from `groupaccount` 
+        join `group` using(groupid)
+        where `group`.`groupname` = `in_groupname`
+        group by `groupaccount`.`groupid`;
+end$$
+delimiter ;
 
--- Question 3:
-Drop view if exists `bang3`;
-create view `bang3` as (
-select `content`
-from `question`
-where character_length(`content`) >= 300
-);
-Delete from `bang3`;
+-- Question 3:                   
+drop procedure if exists `bang3`;
+delimiter $$
+create procedure `bang3` (out out_typequestion_name varchar(30))
+begin
+		select `typequestion`.`typename`, count(`question`.`questionid`)
+		from `typequestion`
+		join question using(typeid)
+		where month(`question`.`createdate`) = month(now()) and year(`question`.`createdate`) = year(now())
+		group by `question`.`typeid` ;
+end$$
+delimiter ;
 
 -- Question 4:
-drop view if exists `bang4`;
-create view `bang4` as (
-select `department`.`departmentname`, count(`account`.`accountid`)
-from `account`
-join department using(departmentid)
-group by `account`.`DepartmentID` having count(`account`.`accountid`) = (select max(`so luong`)
-from(select count(`account`.`accountid`) as 'so luong'
-from `account`
-group by `account`.`departmentid`) as `max`)
-);
+drop procedure if exists `bang4`;
+delimiter $$
+create procedure `bang4` (out out_ID tinyint)
+begin
+		select `Question`.`typeid` into out_ID
+        from `Question` 	
+        join `typequestion` using(typeid)
+        group by `Question`.`typeid` having count(`Question`.`questionid`) = (select max(`so luong`)
+        from (select count(`questionid`) as 'so luong'
+			from `question`
+            group by `typeid` 
+        )as `max` );
+end$$
+delimiter ;
 
 -- Question 5:
-drop view if exists `bang5`;
-create view `bang5` as(
-select `question`.`content`, `account`.`fullname` as 'nguoi hoi'
-from `question`
-join `account` on `account`.`AccountID` = `question`.`creatorid`
-where `fullname` like 'Nguyen%'
+call `bang4`(@out_id);
+select @out_id;
+
+select `typename`
+from `typequestion`
+where typeid = @out_id;
+
+-- Question 6:                        
+drop procedure if exists `bang6`;
+delimiter $$
+create procedure `bang6` (in keyword varchar(50))
+begin
+		select `groupid`, `groupname`
+        from `group`
+		where groupname like concat('%',`keyword`,'%')
+        union
+        select `AccountID`, `Username`
+        from `account`
+        where username like concat('%',`keyword`,'%');
+end$$
+delimiter ;
+
+-- Question 7:                               
+drop procedure if exists `bang7`;
+delimiter $$
+create procedure `bang7`(in fullname varchar(50), in email varchar(30))
+begin
+		declare username varchar(50);
+		declare	position_ID tinyint;
+        set username = substring_index(email, '@', 1) ;
+        select positionid into position_id from position where positionname like '%dev%' limit 1;
+        select 'tạo thành công';
+end$$
+delimiter ;
+
+-- Question 8:                        
+drop procedure if exists `bang8`;
+delimiter $$
+create procedure `bang8` (in in_typename varchar(30))
+begin
+-- khai bao bien
+        declare max_length int;
+        set max_length =(select max(character_length(content)) from question join typequestion using(typeid) where in_typename = typename);
+ -- cau lenh       
+        select `question`.`content`,`typequestion`.`typename`, character_length(content) as 'do dai cau hoi'
+        from `question`
+        join `typequestion` using(typeid)
+        where character_length(content) = max_length and in_typename = typename
+       ;
+end$$
+delimiter ;
+
+-- Question 9:
+drop procedure if exists `bang9`;
+delimiter $$
+create procedure `bang9` (in ID tinyint)
+begin
+		delete from exam where ID = examid; 
+end$$
+delimiter ;
+
+-- back lai data
+begin work;
+select *
+from Exam;
+call `bang9`(1);
+rollback;
+
+-- Question 10:                        
+drop procedure if exists `bang10`;
+delimiter $$
+create procedure `bang10` ()
+begin
+	declare done int default false;
+    declare num_of_del int unsigned;
+    declare _id int unsigned;
+    declare _date date;
+    declare cur cursor for select ExamID, CreateDate from Exam;
+    declare continue handler for not found set done = true;
+
+    set num_of_del = 0;
+
+    open cur;
+    read_loop:
+    loop
+        fetch cur into _id,_date;
+        -- leave loop
+        if done then
+            leave read_loop;
+        end if;
+        -- check date
+        if timestampdiff(year, _date, curdate()) >= 3 then
+            call bang9(id);
+            set num_of_del = num_of_del + 1;
+        end if;
+    end loop;
+    close cur;
+    select num_of_del;
+	
+end$$
+delimiter ;
+
+-- test Q10:
+begin work;
+call `bang10`();
+rollback;
+select * from exam;
+
+-- Question 11:
+drop procedure if exists `bang11`;
+delimiter $$
+create procedure `bang11` (in _departmentname varchar(30))
+begin
+		
+		declare _departmentID tinyint;
+    select DepartmentId
+    into _departmentID
+    from Department
+    limit 1;
+
+    if (_departmentID is not null) then
+        delete from Department where Departmentname = _departmentname;
+        update Account set DepartmentId=null where DepartmentId = _departmentID;
+    end if;
+end$$
+delimiter ;
+
+-- test Q11
+begin work;
+rollback;
+select * from department;
+select `account`.*, `department`.`departmentname` from account
+join department using(departmentid);
+call `bang11`('phong giam doc');
+
+-- Question 12:                           
+drop procedure if exists `bang12`;
+delimiter $$
+create procedure `bang12` ()
+begin
+		declare _month int unsigned default 1;
+        declare _number int unsigned default 0;
+        declare _name varchar(50);
+
+drop table if exists `tah`;
+create table `tah` 
+( month char(20),
+  amount tinyint unsigned default 0
 );
 
+moon_loop:
+loop
+	if(_month >12 or _month <1) then leave moon_loop;
+    end if;
+    set _name = concat('tháng', _month);
+    set _number = 0;
+	select count(questionid) into _number  from question
+    where year(createdate) = year(now()) and month(createdate) = _month;
+    set _month = _month +1;
+    insert into `tah` values(_name, _number);
+end loop;
+select month as 'tháng', amount as 'số lượng câu hỏi được tạo' from `tah`;
+end$$
+delimiter ;
 
 
+-- Question 13:
+drop procedure if exists `bang13`;
+delimiter $$
+create procedure `bang13`()
+begin
+	declare curr_date date;
+    declare step_date date;
+    declare iter int default 0;
+    declare _title nvarchar(50);
+    declare _result nvarchar(50);
+    declare _num int;
+    set curr_date = current_date();
+
+    drop temporary table if exists result;
+    create temporary table result
+    (
+        title  nvarchar(50),
+        result nvarchar(50)
+    );
+
+    set iter = 0;
+    while iter < 6
+        do
+            set step_date = subdate(curr_date, interval iter month);
+            set _title = concat('date: ', month(step_date), ' - ', year(step_date));
+
+            set _num = (select count(QuestionID)
+                        from Question
+                        where year(CreateDate) = year(curr_date)
+                          and month(CreateDate) = month(step_date));
 
 
+            set _result = case _num
+                              when 0 then 'không có câu hỏi nào trong tháng'
+                              else _num
+                end;
 
+            insert into result values (_title, _result);
+            set iter = iter + 1;
+        end while;
 
-
-
-
-
-
+    select title as tiltle, result as result from result;
+    drop temporary table if exists result;
     
+		
+end $$
+
+
+
+
+
+
+
+
+
+
+
+

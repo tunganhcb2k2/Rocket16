@@ -126,7 +126,7 @@ value				   ('1'          , N'Marketing'   ),
 					   ('5'          , N'Kỹ thuật'    ),
 					   ('6'          , N'Tài chính'   ),
 					   ('7'          , N'Phó giám đốc'),
-					   ('8'          , N'Giám đốc'    ),
+					   ('8'          , N'Giám đốc'    ), 
 					   ('9'          , N'Thư kí'      ),
 					   ('10'         , N'Bán hàng'    );
 
