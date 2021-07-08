@@ -382,34 +382,30 @@ rollback;
 -- Question 10:                        
 drop procedure if exists `bang10`;
 delimiter $$
-create procedure `bang10` ()
+create procedure `bang10`()
 begin
-	declare done int default false;
-    declare num_of_del int unsigned;
-    declare _id int unsigned;
-    declare _date date;
-    declare cur cursor for select ExamID, CreateDate from Exam;
-    declare continue handler for not found set done = true;
-
-    set num_of_del = 0;
-
-    open cur;
-    read_loop:
-    loop
+		declare done tinyint DEFAULT false;
+        DECLARE _number tinyint ;
+        DECLARE _id tinyint UNSIGNED;
+        DECLARE _date date;
+		declare cur cursor for select ExamID, CreateDate from Exam;
+		declare continue handler for not found set done = true;
+        
+        set _number = 0;
+        
+        open cur;
+		read_loop:
+        loop
         fetch cur into _id,_date;
-        -- leave loop
-        if done then
-            leave read_loop;
+        if done then leave read_loop;
         end if;
-        -- check date
-        if timestampdiff(year, _date, curdate()) >= 3 then
-            call bang9(_id);
-            set num_of_del = num_of_del + 1;
+        if timestampdiff(year,_date,curdate()) >=3 then
+        call `bang9`(_id);
+        set _number = _number + 1;
         end if;
-    end loop;
-    close cur;
-    select num_of_del;
-	
+        end loop;
+        close cur;
+        select _number ;
 end$$
 delimiter ;
 
@@ -501,7 +497,7 @@ begin
     while iter < 6
         do
             set step_date = subdate(curr_date, interval iter month);
-            set _title = concat('date: ', month(step_date), ' - ', year(step_date));
+            set _title = concat('thang ', month(step_date), ' - ', year(step_date));
 
             set _num = (select count(QuestionID)
                         from Question
@@ -519,15 +515,12 @@ begin
         end while;
 
     select title as tiltle, result as result from result;
-    drop temporary table if exists result;
+    
     
 		
 end $$
 
-
-
-
-
+call `bang13`()
 
 
 
