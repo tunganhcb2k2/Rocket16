@@ -443,6 +443,8 @@ join department using(departmentid);
 call `bang11`('phong giam doc');
 
 -- Question 12:                           
+
+-- C1: voi ham lap loop
 drop procedure if exists `bang12`;
 delimiter $$
 create procedure `bang12` ()
@@ -471,9 +473,76 @@ end loop;
 select month as 'tháng', amount as 'số lượng câu hỏi được tạo' from `tah`;
 end$$
 delimiter ;
+ 
+ -- c2: voi bang tam CTE
+ drop procedure if exists `bang12`;
+ delimiter $$
+ create procedure `bang12`()
+ begin
+	with `cte_bangtam` as (
+    select 
+			month(subdate(now(), interval 12 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 11 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 10 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 9 month)) as 'month',
+            year(now()) as 'year'
+    union
+    select
+			month(subdate(now(), interval 8 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 7 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 6 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 5 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 4 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 3 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 2 month)) as 'month',
+            year(now()) as 'year'
+	union
+    select
+			month(subdate(now(), interval 1 month)) as 'month',
+            year(now()) as 'year'
+    )
+    
+	select c.`month`, c.`year`, case when count(questionid) = 0 then 'không có câu hỏi nào trong tháng' else count(questionid)  end as 'SL'
+    from `cte_bangtam` c
+    left join (select * from question where year(createdate) = year(now())) as `subquery` on c.`month` = month(createdate)
+    group by c.`month`, c.`year`
+    order by c.`month` asc
+    ;
+ end$$
+ delimiter ;
 
+call `bang12`()
 
 -- Question 13:
+
+-- C1: voi vong lap loop
 drop procedure if exists `bang13`;
 delimiter $$
 create procedure `bang13`()
@@ -520,7 +589,51 @@ begin
 		
 end $$
 
-call `bang13`()
+call `bang13`();
+
+-- C2: voi bang tam CTE
+
+drop procedure if exists `bang13`;
+delimiter $$
+create procedure `bang13`()
+begin 
+	with `CTE_bangtam` as (
+select 
+		month(subdate(now(), interval 5 month)) as 'month' ,
+		year(subdate(now(), interval 5 month)) as 'year' 
+ union
+ select 
+		month(subdate(now(),interval 4 month)) as 'month',
+		year(subdate(now(), interval 4 month)) as 'year'
+union
+select  
+		month(subdate(now(), interval 3 month)) as 'month',
+		year(subdate(now(), interval 3 month)) as 'year'
+union
+select	
+		month(subdate(now(), interval 2 month)) as 'month',
+		year(subdate(now(), interval 2 month)) as 'year'
+union
+select	
+		month(subdate(now(), interval 1 month)) as 'month',
+		year(subdate(now(), interval 1 month)) as 'year'
+union
+select  
+		month(now()) as 'month',
+		year(now()) as 'year'
+    )
+select `C`.`month`,`c`.`year`, case when count(questionid) = 0 then 'không có câu hỏi nào trong tháng' else count(questionid) end as 'SL'
+from `CTE_bangtam` C
+left join(select * from question  where createdate >= subdate(now(), interval 5 month) and createdate <= now()) as `subquery` on C.month = month(createdate)
+group by c.month,c.year
+;
+end$$
+delimiter ;
+
+call `bang13`();
+
+
+
 
 
 
