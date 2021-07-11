@@ -307,14 +307,208 @@ create trigger `bang3`
 before insert on groupaccount
 for each row
 begin
-	select count(accountid) as 'so luong' from groupaccount group by groupid;
-    if new.count(accountid) >= 5 then
+	declare _number tinyint;
+    select count(accountid) into _number from groupaccount where new.groupid = groupid group by groupid;
+    if _number > 5 then
     signal sqlstate '12345'
     set message_text = 'toi da 5 user';
     end if;
 end$$
 delimiter ;
 
+-- test Q3:
+insert into groupaccount
+values	(1,3, now());
+
+-- Question 4:
+drop trigger if EXISTS `bang4`;
+delimiter $$
+create trigger `bang4`
+before insert on examquestion
+for each row 
+begin
+	declare _number tinyint;
+    select count(examid) into _number from examquestion where new.examid = examid GROUP BY questionid;
+    if _number > 10 then
+    signal SQLSTATE '12345'
+    set MESSAGE_TEXT = 'toi da 10 cau hoi';
+    end if;
+end $$
+delimiter ;
+
+-- Question 5:
+drop trigger if exists `bang5`;
+delimiter $$
+create trigger `bang5`
+before delete on `account`
+for each row
+begin 
+	if old.email = 'admin@gmail.com' then 
+    signal sqlstate '12345'
+    set message_text = 'day la tai khoan admin, khong duoc phep xoa!!!';
+    end if;
+    delete from `account` where old.accountid = accountid;
+end$$
+delimiter ;
 
 
-	
+-- Question 6:
+drop trigger if exists `bang6`;
+delimiter $$
+create trigger `bang6`
+before insert on `account`
+for each row
+begin
+	if new.departmentid is null then 
+    set new.departmentid = (select departmentid
+							from department
+                            where departmentname = 'waiting Department');
+    end if;
+end$$
+delimiter ;
+
+-- Question 7:                         
+drop trigger if exists `bang7`;
+delimiter $$
+create trigger `bang7`
+before insert on `answer`
+for each row
+begin
+	DECLARE number_answer tinyint;
+    declare number_tf tinyint;
+	select count(answerid) into number_answer  from answer where new.questionid = questionid and new.iscorrect = iscorrect   group by questionid; 
+    select count(iscorrect) into number_tf from answer where iscorrect = 1 and new.questionid = questionid   group by questionid ;
+    if number_answer >= 4 or number_tf >= 2 then
+    signal SQLSTATE '12345'
+    set MESSAGE_TEXT = 'toi da 4 cau tl va 2 dap an dung';
+    end if;
+end$$
+delimiter ; 
+
+insert into answer 
+values   ( '16','tl1', 2, 1);
+
+begin work;
+rollback;
+select * from answer;
+
+-- Question 8:           
+drop trigger if exists `bang8`;
+delimiter $$
+create trigger `bang8`
+before insert on `account`
+for each row 
+begin
+if new.gender = 'nam' then
+set gender = 'M';
+elseif new.gender = 'nu' then
+set gender = 'F';
+elseif new.gender = 'chua xac dinh' then
+set gender = 'U';
+end if;
+end$$
+delimiter ;
+
+-- them cot 'gender' cho bang `account`
+alter table `account` add column `gender` varchar(10);
+
+-- test Q8
+insert into `account`
+values ('11', 'vti@gmail.com','vti','TAH', '2', '3', now(), 'nam');
+
+select * from `account`;
+
+-- Question 9:
+drop trigger if exists `bang9`;
+delimiter $$
+create trigger `bang9`
+before delete on `account`
+for each row
+begin
+	if createdate <= subdate(now(), interval 2 day) then
+    signal SQLSTATE '12345'
+    set MESSAGE_TEXT = 'khong duoc phep xoa';
+    end if;
+end$$
+delimiter ;
+
+-- Question 10:              CHUA XONG NE!!!!!!!!!!!1
+
+-- UPDATE
+drop trigger if exists `bang10`;
+delimiter $$
+create trigger `bang10`
+before update on question
+for each row 
+begin 
+	declare _number tinyint unsigned;
+    select count(examid) into _number
+    from examquestion
+    right join question using(questionid)  
+    where new.questionid = questionid
+    group by questionid;
+    if _number > 0 then
+    signal sqlstate '46000'
+    set message_text = 'chi duoc update question khong co trong exam nao';
+    end if;
+end$$
+delimiter ;
+
+-- test update:
+update question set content = 'lcb' where questionid = 10;
+begin work;
+rollback;
+select * from question;
+
+-- DELETE
+drop trigger if exists `bang10`;
+delimiter $$
+create trigger `bang10`
+before delete on question
+for each row 
+begin 
+	declare _number tinyint unsigned;
+    select count(examid) into _number
+    from examquestion
+    right join question using(questionid)  
+    where old.questionid = questionid
+    group by questionid;
+    if _number > 0 then
+    signal sqlstate '46000'
+    set message_text = 'chi duoc xoa question khong co trong exam nao';
+    end if;
+end$$
+delimiter ;
+
+-- test DELETE:
+delete from question where questionid = 1;
+begin work;
+rollback;
+select * from question;
+
+-- Question 12:
+select *, case when duration <= 30 then 'short time' 
+ when 30 < duration and duration <= 60 then 'Medium time' 
+else 'longtime' end as 'kieu' 
+from exam;
+ 
+-- Question 13:
+select `group`.`groupid`, count(accountid) as so_account, case when 
+count(accountid) <= 5 then 'few' 
+when count(accountid) <= 20 and count(accountid) > 5 then 'normal' 
+else 'higher' end as 'the_number_user_amount' 
+
+from groupaccount
+right join `group` using(groupid)  
+group by groupid;
+
+-- Question 14:
+select `department`.`departmentid`, `department`.`departmentname`, case when count(accountid) = 0 then 'khong co user' else count(accountid) end as 'so luong user' 
+from account
+right join department using(departmentid) 
+group by departmentid
+
+
+
+
+
