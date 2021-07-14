@@ -68,7 +68,7 @@ group by `SubjectID` having count(*) >= 2;
 
 -- cau 3: Tạo view có tên là "StudentInfo" lấy các thông tin về học sinh bao gồm: Student ID,Subject ID, Student Name, Student Age, Student Gender, Subject Name, Mark, Date (Với cột Gender show 'Male' để thay thế cho 0, 'Female' thay thế cho 1 và 'Unknow' thay thế cho null)
 drop view if exists `StudentInfo`;
-create view `StudentInfo` as
+create view `StudentInfo`(`StudentID`, `SubjectID`, `StudentName`, `Age`, `SubjectName`, `Mark`, `Date`, `Gender`) as
 (
 	select `StudentID`, `SubjectID`, `student`.`Name`, `Student`.`Age`, `Subject`.`Name`, `Mark`, `Date`, case `Student`.`Gender` 
     when 0 then 'male'
@@ -80,6 +80,9 @@ create view `StudentInfo` as
     join `subject` on `Studentsubject`.`subjectID` = `subject`.`ID`
     order by `student`.`ID` 
 );
+
+-- test cau 3:
+select * from `StudentInfo`;
 
 -- cau 4: Không sử dụng On Update Cascade & On Delete Cascade
 -- a, Tạo trigger cho table Subject có tên là SubjectUpdateID: Khi thay đổi data của cột ID của table Subject, thì giá trị tương ứng với cột SubjectID của table StudentSubject cũng thay đổi theo
