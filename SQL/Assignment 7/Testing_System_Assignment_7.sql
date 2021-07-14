@@ -432,7 +432,7 @@ begin
 end$$
 delimiter ;
 
--- Question 10:              CHUA XONG NE!!!!!!!!!!!1
+-- Question 10:             
 
 -- UPDATE
 drop trigger if exists `bang10`;
