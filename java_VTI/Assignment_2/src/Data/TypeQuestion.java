@@ -1,6 +1,6 @@
 package Data;
 
 public class TypeQuestion {
-    int typeID;
-    String typeName;
+    public int typeID;
+    public String typeName;
 }

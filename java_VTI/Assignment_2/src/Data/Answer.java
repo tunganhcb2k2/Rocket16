@@ -1,8 +1,8 @@
 package Data;
 
 public class Answer {
-    int answerID;
-    String content;
-    Question questionID;
-    Boolean isCorrect;
+    public int answerID;
+    public String content;
+    public Question questionID;
+    public Boolean isCorrect;
 }

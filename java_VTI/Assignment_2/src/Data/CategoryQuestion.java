@@ -1,6 +1,6 @@
 package Data;
 
 public class CategoryQuestion {
-    int categoryID;
-    String categoryName;
+    public int categoryID;
+    public String categoryName;
 }

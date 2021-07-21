@@ -1,6 +1,10 @@
 package Data;
 
 public class Position {
-    int positionID;
-    String positionName;
+    public int positionID;
+    public String positionName;
+
+    public  String getName(){
+        return positionName;
+    }
 }

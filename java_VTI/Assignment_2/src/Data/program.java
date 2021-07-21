@@ -18,11 +18,6 @@ class Program {
         department3.departmentID = 3;
         department3.departmentName = "Giam Doc";
 
-        // in gia tri Department
-        System.out.println("thong tin Department1:");
-        System.out.println("id:" + department1.departmentID);
-        System.out.println("Name:" + department1.departmentName);
-        System.out.println("\n");
 
         // tao Position
         Position position1 = new Position();
@@ -37,11 +32,6 @@ class Program {
         position3.positionID = 3;
         position3.positionName = "Master";
 
-        // in gia tri Position
-        System.out.println("thong tin Position2:");
-        System.out.println("id:" + position2.positionID);
-        System.out.println("name:" + position2.positionName);
-        System.out.println("\n");
 
         //tao Account
         Account account1 = new Account();
@@ -71,16 +61,6 @@ class Program {
         account3.positionID = position2;
         account3.createDate = new Date(2021, 5, 20);
 
-        // in gia tri account
-        System.out.println("thong tin cua account 3:");
-        System.out.println("accountid:" + account3.accountID);
-        System.out.println("email:" + account3.email);
-        System.out.println("username:" + account3.userName);
-        System.out.println("fullname:" + account3.fullName);
-        System.out.println("departmentid:" + account3.departmentID);
-        System.out.println("positionid:" + account3.positionID);
-        System.out.println("createdate:" + account3.createDate);
-        System.out.println("\n");
 
         // tao Group
         Group group1 = new Group();
@@ -101,13 +81,6 @@ class Program {
         group3.creatorID = account1;
         group3.createDate = new Date(2021, 7, 6);
 
-        // in gia tri Group
-        System.out.println("thong tin cua group1:");
-        System.out.println("GrID:" + group1.groupID);
-        System.out.println("name:" + group1.groupName);
-        System.out.println("CreatorID:" + group1.creatorID);
-        System.out.println("createdate:" + group1.createDate);
-        System.out.println("\n");
 
         // tao GroupAccount
         GroupAccount GA1 = new GroupAccount();
@@ -125,12 +98,6 @@ class Program {
         GA3.accountID = account1;
         GA3.joinDate = new Date(2021, 7, 8);
 
-        //in gia tri GroupAccount
-        System.out.println("thong tin GroupAccount2:");
-        System.out.println("GrID:" + GA2.groupID);
-        System.out.println("AccountID:" + GA2.accountID);
-        System.out.println("joinDate:" + GA2.joinDate);
-        System.out.println("\n");
 
         // tao TypeQuestion
         TypeQuestion TQ1 = new TypeQuestion();
@@ -145,11 +112,6 @@ class Program {
         TQ3.typeID = 3;
         TQ3.typeName = "Essay";
 
-        // in gia tri cua TypeQuestion
-        System.out.println("thong tin cua TypeQuestion3:");
-        System.out.println("typeID:" + TQ3.typeID);
-        System.out.println("Name:" + TQ3.typeName);
-        System.out.println("\n");
 
         // tao CategoryQuestion
         CategoryQuestion CQ1 = new CategoryQuestion();
@@ -164,11 +126,6 @@ class Program {
         CQ3.categoryID = 3;
         CQ3.categoryName = "SQL";
 
-        //in gia tri cua CategoryQuestion
-        System.out.println("thong tin cua CategoryQuestion1:");
-        System.out.println("ID:" + CQ1.categoryID);
-        System.out.println("Name:" + CQ1.categoryName);
-        System.out.println("\n");
 
         // tao Question
         Question Q1 = new Question();
@@ -195,15 +152,6 @@ class Program {
         Q3.creatorID = account2;
         Q3.createDate = new Date(2021, 7, 8);
 
-        // in gia tri cua Question
-        System.out.println("thong tin cua Question2:");
-        System.out.println("QuestionID:" + Q2.questionID);
-        System.out.println("Content:" + Q2.content);
-        System.out.println("CategoryID:" + Q2.categoryID);
-        System.out.println("TypeID:" + Q2.typeID);
-        System.out.println("CreatorID" + Q2.creatorID);
-        System.out.println("CreateDate:" + Q2.createDate);
-        System.out.println("\n");
 
         // tao Answer
         Answer A1 = new Answer();
@@ -224,13 +172,6 @@ class Program {
         A3.questionID = Q3;
         A3.isCorrect = true;
 
-        // in gia tri cua Answer
-        System.out.println("thong tin cua Answer 1:");
-        System.out.println("AnswerID:" + A1.answerID);
-        System.out.println("content:" + A1.content);
-        System.out.println("questionID:" + A1.questionID.getID());
-        System.out.println("iscorrect:" + A1.isCorrect);
-        System.out.println("\n");
 
         // tao Exam
         Exam E1 = new Exam();
@@ -260,16 +201,6 @@ class Program {
         E3.creatorID = account1;
         E3.createDate = new Date(2021, 6, 30);
 
-        // in gia tri cua Exam
-        System.out.println("thong tin cua Exam 1:");
-        System.out.println("examID:" + E1.examID);
-        System.out.println("code:" + E1.code);
-        System.out.println("title:" + E1.title);
-        System.out.println("CategoryID:" + E1.categoryID.getID());
-        System.out.println("duration:" + E1.duration);
-        System.out.println("creatorID:" + E1.creatorID.getID());
-        System.out.println("createDate:" + E1.createDate);
-        System.out.println("\n");
 
         // tao ExamQuestion
         ExamQuestion EQ1 = new ExamQuestion();
@@ -284,15 +215,5 @@ class Program {
         EQ3.examID = E2;
         EQ3.questionID = Q3;
 
-        // in gia tri cua ExamQuestion
-        System.out.println("thong tin cua ExamQuestion 1:");
-        System.out.println("ExamID:" + EQ1.examID);
-        System.out.println("QuestionID" + EQ1.questionID);
-
-        if (account2.departmentID != null) {
-            System.out.println("phong ban cua nhan vien nay la:" + account2.departmentID);
-        }else{
-            System.out.println("nhan vien nay chua co phong ban");
-        }
     }
 }

@@ -3,12 +3,12 @@ package Data;
 import java.util.Date;
 
 public class Question {
-    int questionID;
-    String content;
-    CategoryQuestion categoryID;
-    TypeQuestion typeID;
-    Account creatorID;
-    Date createDate;
+    public int questionID;
+    public String content;
+    public CategoryQuestion categoryID;
+    public TypeQuestion typeID;
+    public Account creatorID;
+    public Date createDate;
 
     //get Question Id
     public int getID() {

@@ -3,8 +3,10 @@ package Data;
 import java.util.Date;
 
 public class Group {
-    int groupID;
-    String groupName;
-    Account creatorID;
-    Date createDate;
-}
+    public int groupID;
+    public String groupName;
+    public Account creatorID;
+    public Date createDate;
+    public Account[] accounts;
+    }
+

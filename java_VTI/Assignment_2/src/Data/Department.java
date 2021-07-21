@@ -1,7 +1,13 @@
 package Data;
 
 public class Department {
-    int departmentID;
-    String departmentName;
+    public int departmentID;
+    public String departmentName;
+
+    public String getName() {
+
+        return departmentName;
+    }
+
 
 }
