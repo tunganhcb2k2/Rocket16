@@ -61,7 +61,7 @@ public class exercise2 {
         account1.userName = "khabanh";
         account1.fullName = "Ngo Ba Kha";
         account1.departmentID = department2;
-        account1.positionID = position2;
+        account1.position = position2;
         account1.createDate = new Date(2021, 6, 30);
         account1.groups = new Group[]{group1, group2, group3};
 
@@ -71,7 +71,7 @@ public class exercise2 {
         account2.userName = "huanrose";
         account2.fullName = "Bui Xuan Huan";
         account2.departmentID = department3;
-        account2.positionID = position3;
+        account2.position = position3;
         account2.createDate = new Date(2021, 4, 21);
         account2.groups = new Group[]{group1, group3};
 
@@ -82,7 +82,7 @@ public class exercise2 {
         account3.userName = "Tienbip";
         account3.fullName = "Hoang Van Tien";
         account3.departmentID = department1;
-        account3.positionID = position2;
+        account3.position = position2;
         account3.createDate = new Date(2021, 5, 20);
 
         // Question 1:

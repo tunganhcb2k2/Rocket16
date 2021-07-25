@@ -85,7 +85,7 @@ public class exercise3 {
         account1.userName = "khabanh";
         account1.fullName = "Ngo Ba Kha";
         account1.departmentID = department2;
-        account1.positionID = position2;
+        account1.position = position2;
         account1.createDate = new Date(2021, 6, 30);
         account1.groups = new Group[]{group1, group2, group3};
 
@@ -95,7 +95,7 @@ public class exercise3 {
         account2.userName = "huanrose";
         account2.fullName = "Bui Xuan Huan";
         account2.departmentID = department3;
-        account2.positionID = position3;
+        account2.position = position3;
         account2.createDate = new Date(2021, 4, 21);
         account2.groups = new Group[]{group1, group3};
 
@@ -105,7 +105,7 @@ public class exercise3 {
         account3.userName = "Tienbip";
         account3.fullName = "Hoang Van Tien";
         account3.departmentID = department1;
-        account3.positionID = position2;
+        account3.position = position2;
         account3.createDate = new Date(2021, 5, 20);
 
         // tao Question
@@ -142,7 +142,7 @@ public class exercise3 {
         E1.categoryID = Q2;
         E1.duration = 120;
         E1.creatorID = account3;
-        E1.createDate = new Date(2021, 6, 30);
+        E1.createDate = new Date(2021 - 1900, 6-1, 30);
 
         Exam E2 = new Exam();
         E2.examID = 2;
@@ -151,7 +151,7 @@ public class exercise3 {
         E2.categoryID = Q3;
         E2.duration = 60;
         E2.creatorID = account1;
-        E2.createDate = new Date(2021, 6, 30);
+        E2.createDate = new Date(2021 - 1900, 6-1, 30);
 
         Exam E3 = new Exam();
         E3.examID = 3;
@@ -160,7 +160,7 @@ public class exercise3 {
         E3.categoryID = Q1;
         E3.duration = 120;
         E3.creatorID = account1;
-        E3.createDate = new Date(2021, 6, 20);
+        E3.createDate = new Date(2021 - 1900, 6-1, 20);
 
         // Question 1:
         // dinh dang createDate theo format VN:

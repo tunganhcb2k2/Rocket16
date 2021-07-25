@@ -8,7 +8,7 @@ public class Account {
     public String userName;
     public String fullName;
     public Department departmentID;
-    public Position positionID;
+    public Position position;
     public Date createDate;
     public Group[] groups;
 

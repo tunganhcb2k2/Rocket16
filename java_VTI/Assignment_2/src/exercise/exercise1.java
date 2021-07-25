@@ -34,6 +34,10 @@ public class exercise1 {
         position3.positionID = 3;
         position3.positionName = "Master";
 
+        Position position4 = new Position();
+        position3.positionID = 4;
+        position3.positionName = "PM";
+
         // tao Group
         Group group1 = new Group();
         group1.groupID = 1;
@@ -57,7 +61,7 @@ public class exercise1 {
         account1.userName = "khabanh";
         account1.fullName = "Ngo Ba Kha";
         account1.departmentID = department2;
-        account1.positionID = position2;
+        account1.position = position2;
         account1.createDate = new Date(2021, 6, 30);
         account1.groups = new Group[]{group1, group2, group3};
 
@@ -67,7 +71,7 @@ public class exercise1 {
         account2.userName = "huanrose";
         account2.fullName = "Bui Xuan Huan";
         account2.departmentID = department3;
-        account2.positionID = position3;
+        account2.position = position3;
         account2.createDate = new Date(2021, 4, 21);
         account2.groups = new Group[]{group1, group3};
 
@@ -78,7 +82,7 @@ public class exercise1 {
         account3.userName = "Tienbip";
         account3.fullName = "Hoang Van Tien";
         account3.departmentID = department1;
-        account3.positionID = position2;
+        account3.position = position2;
         account3.createDate = new Date(2021, 5, 20);
 
 
@@ -243,7 +247,7 @@ public class exercise1 {
         System.out.println(account2.departmentID != null ? "phong ban cua nhan vien nay la:" + account2.departmentID.getName() : "0 co phong ban");
 
         // Question 4:
-        System.out.println(account1.positionID.getName() == "DEV" ? "day la Developer" : "nguoi nay khong phai la Developer");
+        System.out.println(account1.position.getName() == "DEV" ? "day la Developer" : "nguoi nay khong phai la Developer");
 
         // Question 5:
         int x = group1.accounts.length;
@@ -280,7 +284,7 @@ public class exercise1 {
         }
 
         // Question 7:
-        switch (account1.positionID.getName()) {
+        switch (account1.position.getName()) {
             case "DEV":
                 System.out.println("Day la Developer");
                 break;
@@ -298,7 +302,7 @@ public class exercise1 {
         // Question 9:
         Department[] depArray = {department1, department2, department3};
         for (Department department : depArray) {
-            System.out.println("id:" + department.departmentID + ",Name:" + department.departmentName);
+            System.out.println("id:" + department.getID() + ",Name:" + department.getName());
         }
 
         // Question 10:
@@ -314,16 +318,16 @@ public class exercise1 {
         Department[] departmentArray = {department1, department2};
         for (int i = 0; i < departmentArray.length; i++) {
             System.out.println("thong tin cua department thu " + (i + 1) + "la:");
-            System.out.println("ID:" + departmentArray[i].departmentID);
-            System.out.println("Name:" + departmentArray[i].departmentName);
+            System.out.println("ID:" + departmentArray[i].getID());
+            System.out.println("Name:" + departmentArray[i].getName());
         }
 
         // Question 12:
         Department[] depArray1 = {department1, department2, department3};
         for (int i = 0; i < 2; i++) {
             System.out.println("thong tin cua department thu " + (i + 1) + "la:");
-            System.out.println("ID:" + depArray1[i].departmentID);
-            System.out.println("Name:" + depArray1[i].departmentName);
+            System.out.println("ID:" + depArray1[i].getID());
+            System.out.println("Name:" + depArray1[i].getName());
         }
 
         // Question 13:
