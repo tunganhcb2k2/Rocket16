@@ -52,7 +52,7 @@ public class Exercise1 {
         System.out.println("Sum a va b la = " + MyMath.sum(a, b));
     }
 
-    public void Q4 (){
+    public void Q4() {
         Student st = new Student();
         st.setCollege("DH1");
         System.out.println(st.getCollege());

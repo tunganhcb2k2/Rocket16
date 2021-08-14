@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="18509a69-00c8-4bb8-9c9c-98f001796254" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utils/JDBCUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/DepartmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/Exercise1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/Exercise3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/Exercise4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/Exercise5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontEnd/Program1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontEnd/Program2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontEnd/Program3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontEnd/Program4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontEnd/Program5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/Assignment_6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/out/production/Assignment_6/Assignment_6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/src/backend/Exercise2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/src/entity/ex2/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/src/entity/ex2/Q1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_6/src/frontend/Program2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_7/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_7/src/com/entity/EX4/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_7/src/ultis/FileManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/Assignment_8.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Backend/Exercise1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Backend/Exercise2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Backend/Exercise3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Backend/Exercise4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Entity/Ex1/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Entity/Ex2/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Entity/Ex3/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Entity/Ex4/MyNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Entity/Ex4/Salary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Frontend/Program1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Frontend/Program2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Frontend/Program3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_8/src/Frontend/Program4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/Assignment_9.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/src/backend/Exercise2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/src/backend/Exercise3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/src/entity/CPU.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/src/entity/Ex2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/src/frontEnd/Program2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_9/src/frontEnd/Program3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/backend/Exercise5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/frontend/Program3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/src/com/frontend/Program3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/frontend/Program4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/src/com/frontend/Program4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment_7/src/com/frontend/Program5.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1wg15ICxWIgE71kkZz5TWNkzj5s" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../com.ass10" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Application.Program5">
+    <configuration name="Program1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontEnd.Program1" />
+      <module name="Assignment_10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontEnd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Program2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontEnd.Program2" />
+      <module name="Assignment_10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontEnd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Program3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontEnd.Program3" />
+      <module name="Assignment_10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontEnd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Program4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontEnd.Program4" />
+      <module name="Assignment_10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontEnd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Program5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontEnd.Program5" />
+      <module name="Assignment_10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontEnd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program5" />
+        <item itemvalue="Application.Program4" />
+        <item itemvalue="Application.Program3" />
+        <item itemvalue="Application.Program2" />
+        <item itemvalue="Application.Program1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="18509a69-00c8-4bb8-9c9c-98f001796254" name="Changes" comment="" />
+      <created>1628865233844</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628865233844</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
