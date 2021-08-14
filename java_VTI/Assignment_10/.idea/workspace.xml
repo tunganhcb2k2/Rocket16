@@ -25,6 +25,7 @@
       <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/runConfigurations.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_11/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_11/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_6/.idea/runConfigurations.xml" afterDir="false" />
@@ -61,7 +62,6 @@
       <change afterPath="$PROJECT_DIR$/../Assignment_9/src/entity/Ex2.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_9/src/frontEnd/Program2.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_9/src/frontEnd/Program3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/backend/Exercise4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_7/out/production/Assignment_7/com/frontend/Program2.class" afterDir="false" />
