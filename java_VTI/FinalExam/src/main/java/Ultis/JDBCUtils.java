@@ -3,7 +3,7 @@ package Ultis;
 import java.sql.*;
 
 public class JDBCUtils {
-    private static final String URL_DB = "jdbc:mysql://localhost:3306/Testing_System_Assignment_2";
+    private static final String URL_DB = "jdbc:mysql://localhost:3306/TestingSystem";
     private static final String USER_DB = "root";
     private static final String PASSWORD = "Bi21022002.";
     private static Connection connection;
@@ -15,14 +15,14 @@ public class JDBCUtils {
     }
 
 
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection(URL_DB, USER_DB, PASSWORD);
         return connection;
     }
 
 
-    public static void disConnection() throws SQLException {
+    public void disConnection() throws SQLException {
         connection.close();
 
     }

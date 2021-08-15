@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d6801f2-f862-4b72-b649-efcbe8648ac5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/ScannerUltis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/backend/businessLayer/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/backend/dataLayer/AccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/entity/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/entity/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/frontend/Program1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ultis/JDBCUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ultis/ScannerUltis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignment_10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_10/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignment_11/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_11/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment_11/src/main/java/Ultis/JDBCUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ultis/JDBCUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ultis/JDBCUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/businesslayer/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/businesslayer/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/businesslayer/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/businesslayer/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/datalayer/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/datalayer/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/datalayer/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/datalayer/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/presentationlayer/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/presentationlayer/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/presentationlayer/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/presentationlayer/IUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frontEnd/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frontEnd/UserFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frontEnd/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frontEnd/Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +49,26 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RunManager">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontEnd.Program" />
+      <module name="FinalExam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontEnd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,5 +90,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
