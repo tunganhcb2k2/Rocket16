@@ -1,0 +1,97 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>View <b>Account</b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-info add-new" data-toggle="modal" onclick="openAddModal()"><i class="material-icons">&#xE147;</i> Add New</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" onclick="deleteAllModal()"><i class="material-icons">&#xE15C;</i>Delete All</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="checkbox-all" name="checkbox-all" onclick="onChangeCheckboxAll()"></th>
+                            <th>User Name <i class="fa fa-fw fa-sort" id="heading-name" onclick="changeSort('username')"></i></th>
+                            <th>Full Name<i class="fa fa-fw fa-sort" id="heading-fullName" onclick="changeSort('fullName')"></i></th>
+                            <th>Role<i class="fa fa-fw fa-sort" id="heading-role" onclick="changeSort('Role')"></i></th>
+                            <th>Create Date<i class="fa fa-fw fa-sort" id="heading-createdDate" onclick="changeSort('createdDate')"></i></th>
+                            <th>Department Name<i class="fa fa-fw fa-sort" id="heading-departmentName" onclick="changeSort('departmentName')"></i></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="clearfix">
+                    <ul class="pagination"  id="pagination">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <!-- Edit Modal HTML -->
+<div id="addModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">						
+					<h4 class="modal-title" id="titleModal">Add Account</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">	
+                    <div class="modal-container">	
+                    <div class="form-group">
+					</div>			
+                    <div class="form-group">
+						<input type="hidden" id="id" name="id">
+					</div>
+					<div class="form-group">
+						<label for="username" id="usernameLabel">Username</label>
+						<input type="text" placeholder="Enter Username" name="username" id="username" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label for="password" id="passwordLabel">Password</label>
+						<input type="password" placeholder="Enter Password" name="password" id="password" class="form-control" required>
+					</div>
+                    <div class="form-group">
+						<label for="firstName" id="firstNameLabel">First Name</label>
+						<input type="text" placeholder="Enter First Name" name="firstName" id="firstName" class="form-control" required>
+					</div>
+                    <div class="form-group">
+						<label for="lastName" id="lastNameLabel">Last Name</label>
+						<input type="text" placeholder="Enter Last Name"name="lastName" id="lastName" class="form-control" required>
+					</div>
+                    <div class="form-group">
+                        <label for="role" id="roleLabel">Role</label>
+						<input type="text" placeholder="Enter Role" name="role" id="role" class="form-control" required>
+					</div>
+					<div class="form-group">
+                        <label for="email" id="emailLabel">Email</label>
+						<input type="email " placeholder="Enter Email" name="email" id="email" class="form-control" required>
+					</div>
+					<div class="form-group">
+                        <label for="departmentId" id="departmentIdLabel">Department ID</label>
+						<input type="number" placeholder="Enter Department ID" name="departmentId" id="departmentId" class="form-control" required>
+                        <p style="color: red;" id="ErrorMessage"></p>
+                    </div>					
+				</div>
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="save()">Save</button>
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+    <!-- success alert -->
+    <div class="alert alert-success" id="success-alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>Success! </strong>
+    </div>
+</div>
